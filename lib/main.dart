@@ -9,8 +9,7 @@ import 'package:uit_hackathon/main_app.dart';
 
 import 'package:uit_hackathon/features/schedule/createschedule_page.dart';
 import 'package:uit_hackathon/features/schedule/map_page.dart';
-
-
+import 'package:uit_hackathon/features/onboarding/screens/onboarding.dart';
 
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/providers/garbage_provider.dart';
@@ -70,7 +69,7 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: generateRoutes,
       home: Provider.of<UserProvider>(context).user.id.isNotEmpty
           ? const MainApp()
-          : const LoginScreen(),
+          : const Onboarding(),
     );
   }
 }
