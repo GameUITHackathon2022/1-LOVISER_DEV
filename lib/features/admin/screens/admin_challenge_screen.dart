@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uit_hackathon/models/challenge.dart';
+import 'package:uit_hackathon/utils/app_styles.dart';
 
 class AdminChallengeScreen extends StatefulWidget {
   const AdminChallengeScreen({super.key});
@@ -40,9 +41,16 @@ class _AdminChallengeScreenState extends State<AdminChallengeScreen> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Center(
           child: Text(
             'Xét duyệt',
+            style: AppStyles.medium.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
           ),
         ),
       ),
@@ -172,35 +180,44 @@ class ChallengeInfo extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: height * 0.005,
+                height: height * 0.03,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: 0.08,
-                    width: 0.25,
                     decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFFFFEDED),
+                      borderRadius: BorderRadius.circular(30),
                     ),
-                    child: const Text(
-                      "Từ chối",
-                      style: TextStyle(
-                        color: Color(0xFFDC312D),
+                    child: SizedBox(
+                      width: width * 0.3,
+                      height: height * 0.05,
+                      child: const Center(
+                        child: Text(
+                          "Từ chối",
+                          style: TextStyle(
+                            color: Color(0xFFDC312D),
+                          ),
+                        ),
                       ),
                     ),
                   ),
                   Container(
-                    height: 0.08,
-                    width: 0.25,
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: const Color(0xFFE8FDF2),
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    child: const Text(
-                      "Từ chối",
-                      style: TextStyle(
-                        color: Color(0xFFDC312D),
+                    child: SizedBox(
+                      width: width * 0.3,
+                      height: height * 0.05,
+                      child: const Center(
+                        child: Text(
+                          "Phê duyệt",
+                          style: TextStyle(
+                            color: Color(0xFF0E9D57),
+                          ),
+                        ),
                       ),
                     ),
                   ),
