@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
+import 'package:uit_hackathon/features/admin/screens/admin_screen.dart';
+import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
+import 'package:uit_hackathon/features/authentication/services/garbage_services.dart';
+import 'package:uit_hackathon/main_app.dart';
 
 import 'package:uit_hackathon/features/schedule/createschedule_page.dart';
 import 'package:uit_hackathon/features/schedule/map_page.dart';
 
 
+
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
+import 'package:uit_hackathon/providers/garbage_provider.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
 import 'package:uit_hackathon/route.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
@@ -21,6 +27,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (context) => BottomNavigationProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => GarbageProvider(),
         ),
       ],
       child: const MyApp(),
@@ -59,7 +68,7 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-      home: const LoginScreen(),
+      home: const AdminScreen(),
     );
   }
 }
