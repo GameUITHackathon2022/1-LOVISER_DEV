@@ -13,7 +13,6 @@ import 'package:uit_hackathon/models/user.dart';
 
 final Map<String, WidgetBuilder> routes = {
   MainApp.routeName: (context) => const MainApp(),
-  AddGarbageScreen.routeName: (context) => const AddGarbageScreen(),
   LoginScreen.routeName: (context) => const LoginScreen(),
   SignUpScreen.routeName: (context) => const SignUpScreen(),
   CreateChallengeScreen.routeName: (context) => const CreateChallengeScreen(),
