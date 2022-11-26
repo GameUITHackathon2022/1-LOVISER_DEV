@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 
-import 'package:uit_hackathon/features/authentication/screens/createschedule_page.dart';
+import 'package:uit_hackathon/features/schedule/createschedule_page.dart';
+import 'package:uit_hackathon/features/schedule/map_page.dart';
 
 
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
@@ -57,7 +59,7 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-      home: const CreateScheduleScreen(),
+      home: const LoginScreen(),
     );
   }
 }
