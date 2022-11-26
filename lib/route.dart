@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uit_hackathon/features/admin/screens/add_garbage_screen.dart';
+import 'package:uit_hackathon/features/challenge/screens/create_challenge_screen.dart';
+import 'package:uit_hackathon/features/challenge/screens/select_date_screen.dart';
 import 'package:uit_hackathon/features/profile/screens/edit_profile_screen.dart';
 import 'package:uit_hackathon/features/profile/screens/my_profile_screen.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
@@ -9,12 +11,11 @@ import 'package:uit_hackathon/models/user.dart';
 
 final Map<String, WidgetBuilder> routes = {
   MainApp.routeName: (context) => const MainApp(),
-
   AddGarbageScreen.routeName: (context) => const AddGarbageScreen(),
-
   LoginScreen.routeName: (context) => const LoginScreen(),
-  SignUpScreen.routeName:(context) => const SignUpScreen()
-
+  SignUpScreen.routeName: (context) => const SignUpScreen(),
+  CreateChallengeScreen.routeName: (context) => const CreateChallengeScreen(),
+  SelectDateScreen.routeName: (context) => SelectDateScreen()
 };
 
 MaterialPageRoute<dynamic>? generateRoutes(RouteSettings settings) {

@@ -76,8 +76,8 @@ class AuthServices {
             res.headers['access-token']!,
           );
           await preps.setString(
-            'phone',
-            jsonDecode(res.body)['phoneNumber'],
+            'id',
+            jsonDecode(res.body)['id'],
           );
           Navigator.pushNamed(context, MainApp.routeName);
         },
@@ -95,29 +95,15 @@ class AuthServices {
     try {
       SharedPreferences pref = await SharedPreferences.getInstance();
 
-      String? token = pref.getString('x-auth-token');
-
-      if (token == null) {
-        pref.setString('x-auth-token', '');
-      }
-
-      http.Response tokenRes = await http.post(
-        Uri.parse('$uri/isTokenValid'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-          'x-auth-token': token!,
-        },
-      );
-
-      var response = jsonDecode(tokenRes.body);
-
-      if (response == true) {
+      String? token = pref.getString('id');
+      if (token == '') {
+        pref.setString('id', '');
+      } else {
         // get user data
         http.Response userRes = await http.get(
-          Uri.parse('$uri/'),
+          Uri.parse('${uri}api/auth/getUserData/$token'),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
-            'x-auth-token': token,
           },
         );
         Provider.of<UserProvider>(context, listen: false).setUser(userRes.body);
