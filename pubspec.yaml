@@ -28,9 +28,15 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+
+  cloudinary_public: ^0.20.0
+
   awesome_snackbar_content: ^0.1.0
+
   cupertino_icons: ^1.0.2
+  dotted_border: ^2.0.0+3
   dropdown_search: ^5.0.3
+  file_picker: ^5.2.2
   flutter:
     sdk: flutter
   flutter_format_money_vietnam: ^0.0.2
@@ -39,9 +45,12 @@ dependencies:
   geolocator: ^9.0.2
   google_maps_flutter: ^2.2.1
   http: ^0.13.5
+  image_picker: ^0.8.6
+  intl: ^0.17.0
   pin_code_fields: ^7.4.0
   provider: ^6.0.4
   shared_preferences: ^2.0.15
+  syncfusion_flutter_datepicker: ^20.3.58
 
 dev_dependencies:
   flutter_lints: ^2.0.0

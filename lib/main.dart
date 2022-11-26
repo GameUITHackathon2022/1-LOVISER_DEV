@@ -45,17 +45,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  //final AuthServices authService = AuthServices();
+  final AuthServices authService = AuthServices();
 
   @override
   void initState() {
     super.initState();
-    //authService.getUserData(context: context);
+    authService.getUserData(context: context);
   }
 
   @override
   Widget build(BuildContext context) {
-    // final user = Provider.of<UserProvider>(context).user;
+    final user = Provider.of<UserProvider>(context).user;
     // print(user.username);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -68,7 +68,9 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-      home: const AdminScreen(),
+      home: Provider.of<UserProvider>(context).user.id.isNotEmpty
+          ? const MainApp()
+          : const LoginScreen(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:uit_hackathon/features/challenge/screens/challenge_screen.dart';
 import 'package:uit_hackathon/features/home/screens/home_screen.dart';
 import 'package:uit_hackathon/features/profile/screens/profile_screen.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
@@ -19,7 +20,7 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   List screens = [
     const HomeScreen(),
-    Container(),
+    const ChallengeScreen(),
     Container(),
     const ProfileScreen(),
   ];
