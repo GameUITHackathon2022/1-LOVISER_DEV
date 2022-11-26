@@ -3,23 +3,15 @@ import 'dart:convert';
 
 class User {
   final String username;
-  final String? id;
+  final String id;
   final String phoneNumber;
-  final String password;
-  final String type;
-  final String token;
-  final String address;
-  final String avatar;
+  //final String avatar;
 
   User({
     required this.username,
-    this.id,
+    required this.id,
     required this.phoneNumber,
-    required this.password,
-    required this.type,
-    required this.token,
-    required this.avatar,
-    required this.address,
+    //required this.avatar,
   });
 
   Map<String, dynamic> toMap() {
@@ -27,24 +19,16 @@ class User {
       'username': username,
       'id': id,
       'phoneNumber': phoneNumber,
-      'password': password,
-      'type': type,
-      'token': token,
-      'address': address,
-      'avatar': avatar,
+      //'avatar': avatar,
     };
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      username: map['name'] as String,
-      id: map['_id'] as String,
+      username: map['username'] as String,
+      id: map['id'] as String,
       phoneNumber: map['phoneNumber'] as String,
-      password: map['password'] as String,
-      type: map['type'] as String,
-      token: map['token'] as String,
-      address: map['address'] as String,
-      avatar: map['avatar'] as String,
+      //avatar: map['avatar'] as String,
     );
   }
 
@@ -53,18 +37,16 @@ class User {
   factory User.fromJson(String source) =>
       User.fromMap(json.decode(source) as Map<String, dynamic>);
 
-  @override
-  String toString() {
-    return 'User(name: $username, id: $id, phoneNumber: $phoneNumber , password: $password, type: $type, token: $token, address: $address )';
-  }
+  // @override
+  // String toString() {
+  //   return 'User(name: $username, id: $id, phoneNumber: $phoneNumber , type: $type, address: $address )';
+  // }
 
   User copyWith({
     String? name,
     String? id,
     String? phoneNumber,
-    String? password,
     String? type,
-    String? token,
     String? address,
     String? avatar,
     String? phone,
@@ -73,11 +55,7 @@ class User {
       username: name ?? username,
       id: id ?? this.id,
       phoneNumber: phoneNumber ?? this.phoneNumber,
-      password: password ?? this.password,
-      type: type ?? this.type,
-      token: token ?? this.token,
-      avatar: avatar ?? this.avatar,
-      address: address ?? this.address,
+      //avatar: avatar ?? this.avatar,
     );
   }
 }

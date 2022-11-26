@@ -18,15 +18,9 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   User user = User(
-    password: 'teoemak123',
     phoneNumber: '426-980-0043',
     username: 'Julia Andrews',
-    avatar:
-        'https://images.unsplash.com/photo-1657299143548-658603d76b1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
-    address: '',
     id: '',
-    token: '',
-    type: '',
   );
 
   List<Stat> stats = [

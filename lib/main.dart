@@ -47,8 +47,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    //final user = Provider.of<UserProvider>(context).user;
-    //print(user.name);
+    // final user = Provider.of<UserProvider>(context).user;
+    // print(user.username);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Uit Hackathon',

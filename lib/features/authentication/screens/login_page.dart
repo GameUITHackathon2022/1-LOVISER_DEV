@@ -101,50 +101,46 @@ class _LoginScreenState extends State<LoginScreen> {
                   type: TextInputType.phone,
                   hintText: 'Số điện thoại',
                 ),
-                SizedBox(height: size.height * 0.03),
-                Container(
-                  child: TextFormField(
-                      controller: passController,
-                      obscureText: isPasswordVisibleOld,
-                      textInputAction: TextInputAction.done,
-                      decoration: InputDecoration(
-                          enabledBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(
-                                width: 2,
-                                color: Color(0xffe8ecf4)), //<-- SEE HERE
-                          ),
-                          filled: true,
-                          fillColor: const Color(0xfff7f8f9),
-                          hintText: 'Mật khẩu',
-                          hintStyle: const TextStyle(
-                            fontFamily: 'AvertaStdCY-Regular',
-                            color: Color(0xff616161),
-                          ),
-                          suffixIcon: IconButton(
-                            icon: isPasswordVisibleOld
-                                ? const Image(
-                                    color: Color(0xFF60778C),
-                                    width: 24,
-                                    height: 24,
-                                    image:
-                                        AssetImage('assets/images/eyeOn.png'))
-                                : const Image(
-                                    color: Color(0xFF60778C),
-                                    width: 24,
-                                    height: 24,
-                                    image:
-                                        AssetImage('assets/images/eyeOff.png')),
-                            onPressed: () => setState(() =>
-                                isPasswordVisibleOld = !isPasswordVisibleOld),
-                          ),
-                          border: const OutlineInputBorder()),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Điền mật khẩu';
-                        }
-                        return null;
-                      }),
-                ),
+                const SizedBox(height: 15),
+                TextFormField(
+                    controller: passController,
+                    obscureText: isPasswordVisibleOld,
+                    textInputAction: TextInputAction.done,
+                    decoration: InputDecoration(
+                      hintText: 'Mật khẩu',
+                      filled: true,
+                      fillColor: const Color(0xfff7f8f9),
+                      hintStyle: const TextStyle(
+                        fontFamily: 'AvertaStdCY-Regular',
+                        color: Color(0xff616161),
+                      ),
+                      border: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black38,
+                        ),
+                      ),
+                      suffixIcon: IconButton(
+                        icon: isPasswordVisibleOld
+                            ? const Image(
+                                color: Color(0xFF60778C),
+                                width: 24,
+                                height: 24,
+                                image: AssetImage('assets/images/eyeOn.png'))
+                            : const Image(
+                                color: Color(0xFF60778C),
+                                width: 24,
+                                height: 24,
+                                image: AssetImage('assets/images/eyeOff.png')),
+                        onPressed: () => setState(
+                            () => isPasswordVisibleOld = !isPasswordVisibleOld),
+                      ),
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Điền mật khẩu';
+                      }
+                      return null;
+                    }),
                 SizedBox(height: size.height * 0.03),
                 isLoading
                     ? const Loader()

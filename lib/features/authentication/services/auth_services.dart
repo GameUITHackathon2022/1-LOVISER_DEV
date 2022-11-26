@@ -22,11 +22,8 @@ class AuthServices {
       User user = User(
         username: name,
         phoneNumber: phoneNumber,
-        password: password,
-        type: '',
-        token: '',
-        address: '',
-        avatar: '',
+        // avatar: '',
+        id: '',
       );
 
       http.Response res = await http.post(
@@ -56,8 +53,6 @@ class AuthServices {
     required String password,
   }) async {
     try {
-      print('111');
-
       http.Response res = await http.post(
         Uri.parse('${uri}api/auth/login'),
         body: jsonEncode({
@@ -73,19 +68,22 @@ class AuthServices {
         response: res,
         context: context,
         onSuccess: () async {
+          print(res.headers);
           final preps = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await preps.setString(
             'x-auth-token',
-            jsonDecode(res.body)['token'],
+            res.headers['access-token']!,
           );
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const MainApp()),
+          await preps.setString(
+            'phone',
+            jsonDecode(res.body)['phoneNumber'],
           );
+          Navigator.pushNamed(context, MainApp.routeName);
         },
       );
     } catch (e) {
+      print(e.toString());
       showSnackBar(context, e.toString());
     }
   }
