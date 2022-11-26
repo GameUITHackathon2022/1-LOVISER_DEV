@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,7 +17,6 @@ class GarbageServices {
     required BuildContext context,
   }) async {
     try {
-      print("zo ham");
       http.Response res = await http.get(
         Uri.parse('${uri}api/garbage/getAllGarbage'),
         headers: <String, String>{
@@ -46,20 +47,23 @@ class GarbageServices {
 
   Future<void> addGarbage({
     required BuildContext context,
-    required String name,
-    required double price,
-    required String description,
-    required String type,
+    required Garbage garbage,
+    required File file,
   }) async {
     try {
+      final cloudinary = CloudinaryPublic('dpx4x5tfh', 'm1gthj2u');
+
+        CloudinaryResponse response = await cloudinary.uploadFile(
+          CloudinaryFile.fromFile(
+            file.path,
+            folder: 'challenges',
+          ),
+        );
+        garbage = garbage.copyWith(url: response.secureUrl);
+      
       http.Response res = await http.post(
         Uri.parse('${uri}api/garbage/createGarbage'),
-        body: jsonEncode({
-          "name": name,
-          "price": price,
-          "description": description,
-          "type": type,
-        }),
+        body: garbage.toJson(),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -68,9 +72,6 @@ class GarbageServices {
         response: res,
         context: context,
         onSuccess: () async {
-          print("res ne");
-          print(res);
-          print(json.decode(res.body));
           var response = json.decode(res.body);
           print("data ne");
           print(response.runtimeType);
@@ -78,18 +79,8 @@ class GarbageServices {
           Garbage garbage = Garbage.fromMap(data);
           print(garbage.runtimeType);
           print(garbage.id);
-          // const data = response.data;
-          // final preps = await SharedPreferences.getInstance();
           Provider.of<GarbageProvider>(context, listen: false)
               .addGarbage(garbage);
-          // await preps.setString(
-          //   'x-auth-token',
-          //   res.headers['access-token']!,
-          // );
-          // await preps.setString(
-          //   'phone',
-          //   jsonDecode(res.body)['phoneNumber'],
-          // );
           Navigator.of(context).pop();
         },
       );

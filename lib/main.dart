@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/admin/screens/admin_screen.dart';
+import 'package:uit_hackathon/features/admin/screens/garbage_list_screen.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
@@ -39,17 +40,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final AuthServices authService = AuthServices();
+  //final AuthServices authService = AuthServices();
 
   @override
   void initState() {
     super.initState();
-    authService.getUserData(context: context);
+    //authService.getUserData(context: context);
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
+    //final user = Provider.of<UserProvider>(context).user;
     // print(user.username);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -62,9 +63,10 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-      home: Provider.of<UserProvider>(context).user.id.isNotEmpty
-          ? const MainApp()
-          : const LoginScreen(),
+      // home: Provider.of<UserProvider>(context).user.id.isNotEmpty
+      //     ? const MainApp()
+      //     : const GarbageList(),
+      home: AdminScreen(),
     );
   }
 }

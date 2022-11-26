@@ -73,7 +73,7 @@ class AuthServices {
           final preps = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           // get all garbage
-          await GarbageServices().getAllGarbage(context: context);
+          //await GarbageServices().getAllGarbage(context: context);
           print("zo xong roi nha");
           // await preps.setString(
           //   'x-auth-token',

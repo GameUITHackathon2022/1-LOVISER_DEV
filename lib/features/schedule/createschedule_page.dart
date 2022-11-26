@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
+// import 'package:geocoding/geocoding.dart';
 import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/challenge/screens/select_date_screen.dart';
 import 'package:uit_hackathon/features/schedule/current_location_screen.dart';
@@ -147,14 +147,14 @@ class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
                               CurrentLocationScreen.routeName,
                             );
                             if (value is List<double>) {
-                              List<Placemark> placemarks =
-                                  await placemarkFromCoordinates(
-                                value[0],
-                                value[1],
-                              );
-                              setState(() {
-                                address = placemarks[0].street;
-                              });
+                              // List<Placemark> placemarks =
+                              //     await placemarkFromCoordinates(
+                              //   value[0],
+                              //   value[1],
+                              // );
+                              // setState(() {
+                              //   address = placemarks[0].street;
+                              // });
                             }
                           },
                           child: Image.asset(AppAssets.icMap)),
