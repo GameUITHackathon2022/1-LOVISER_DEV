@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
-import 'package:uit_hackathon/features/authentication/screens/resetpass_page.dart';
 import 'package:uit_hackathon/utils/app_assets.dart';
 
 import '../../../utils/app_colors.dart';
