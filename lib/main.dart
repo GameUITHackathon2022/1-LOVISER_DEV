@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
@@ -47,10 +48,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Uit Hackathon',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          elevation: 0,
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
+          systemOverlayStyle: SystemUiOverlayStyle.dark, // set dark of light
         ),
         scaffoldBackgroundColor: AppColors.backgroundColor,
       ),

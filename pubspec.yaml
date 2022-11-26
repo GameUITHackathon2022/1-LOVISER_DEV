@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_format_money_vietnam: ^0.0.2
   flutter_svg: ^1.1.6
   font_awesome_flutter: ^10.2.1
   http: ^0.13.5
