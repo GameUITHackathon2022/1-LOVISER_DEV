@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/challenge/screens/challenge_screen.dart';
 import 'package:uit_hackathon/features/home/screens/home_screen.dart';
 import 'package:uit_hackathon/features/profile/screens/profile_screen.dart';
+import 'package:uit_hackathon/features/schedule/createschedule_page.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
 import 'package:uit_hackathon/widgets/tab_widget.dart';
@@ -101,7 +102,12 @@ class _MainAppState extends State<MainApp> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            CreateScheduleScreen.routeName,
+          );
+        },
         child: Container(
           width: 60,
           height: 60,
