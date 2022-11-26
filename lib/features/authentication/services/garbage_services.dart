@@ -12,6 +12,39 @@ import 'package:http/http.dart' as http;
 import 'package:uit_hackathon/utils/global_variables.dart';
 
 class GarbageServices {
+  Future<void> getAllGarbage({   
+    required BuildContext context,
+  }) async {
+    try {
+      print("zo ham");
+      http.Response res = await http.get(
+        Uri.parse('${uri}api/garbage/getAllGarbage'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+      );
+      print("haizza");
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          print("Thanh cong roi haha");
+          List<Garbage> garbages = [];
+          List<dynamic> data = jsonDecode(res.body);
+          print("data: $data");
+          data.forEach((element) {
+            garbages.add(Garbage.fromJson(element));
+          });
+          Provider.of<GarbageProvider>(context, listen: false)
+              .setGarbage(garbages);
+          print("ok roi haha");
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, "loi ne: " + e.toString());
+    }
+  }
+
   Future<void> addGarbage({
     required BuildContext context,
     required String name,

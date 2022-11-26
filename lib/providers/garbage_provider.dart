@@ -21,6 +21,9 @@ class GarbageProvider extends ChangeNotifier {
   void setGarbage(List<Garbage> garbages) {
     _garbages.clear();
     _garbages.addAll(garbages);
+    _garbages.forEach((element) {
+      print(element.name);
+    });
     // _garbages.sort((a, b) => b.time.compareTo(a.time));
     notifyListeners();
   }

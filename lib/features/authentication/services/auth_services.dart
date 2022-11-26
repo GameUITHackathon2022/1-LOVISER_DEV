@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uit_hackathon/features/authentication/services/garbage_services.dart';
 import 'package:uit_hackathon/main_app.dart';
 import 'package:uit_hackathon/models/user.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
@@ -71,14 +72,17 @@ class AuthServices {
           print(res.headers);
           final preps = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
-          await preps.setString(
-            'x-auth-token',
-            res.headers['access-token']!,
-          );
-          await preps.setString(
-            'id',
-            jsonDecode(res.body)['id'],
-          );
+          // get all garbage
+          await GarbageServices().getAllGarbage(context: context);
+          print("zo xong roi nha");
+          // await preps.setString(
+          //   'x-auth-token',
+          //   res.headers['access-token']!,
+          // );
+          // await preps.setString(
+          //   'id',
+          //   jsonDecode(res.body)['id'],
+          // );
           Navigator.pushNamed(context, MainApp.routeName);
         },
       );
