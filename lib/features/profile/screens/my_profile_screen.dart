@@ -46,7 +46,7 @@ class MyProfileScreen extends StatelessWidget {
             const SizedBox(height: 30),
             Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 36,
                   backgroundImage: NetworkImage(
                     'https://images.unsplash.com/photo-1657299143548-658603d76b1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',

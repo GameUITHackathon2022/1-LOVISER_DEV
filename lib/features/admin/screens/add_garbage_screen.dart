@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
 import 'package:uit_hackathon/utils/app_styles.dart';
 import 'package:uit_hackathon/widgets/text_field_input.dart';
@@ -114,7 +112,7 @@ class _AddGarbageScreenState extends State<AddGarbageScreen> {
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {},
-                child: Text('Add'),
+                child: const Text('Add'),
               )
             ],
           ),
