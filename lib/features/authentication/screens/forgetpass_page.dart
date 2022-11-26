@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uit_hackathon/features/authentication/screens/verify_page.dart';
 import 'package:uit_hackathon/utils/app_assets.dart';
 
 import '../../../utils/app_colors.dart';
@@ -24,19 +25,22 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  'MyApp',
-                  style: TextStyle(color: Color(0xff356899),fontSize: 22, fontWeight: FontWeight.bold),
+                Padding(
+                  padding: EdgeInsets.only(top: size.height * 0.05),
+                  child: const Text(
+                    'MyApp',
+                    style: TextStyle(color: Color(0xff356899),fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(height: size.height * 0.08),
-                Text(
+                const Text(
                   'Quên mật khẩu',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(height: size.height * 0.08),
                 Padding(
                   padding: EdgeInsets.only(bottom: size.height * 0.05),
-                  child: Text(
+                  child: const Text(
                     'Nhập số điện thoại của bạn, chúng tôi sẽ gửi cho bạn mã xác minh',
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Color(0xff0D0D26),fontSize: 14, fontWeight: FontWeight.w400),
@@ -48,12 +52,16 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
                   controller: phoneController,
                   hintText: 'Số điện thoại',
                 ),
-                SizedBox(height: size.height * 0.15),
+                SizedBox(height: size.height * 0.1),
                 PrimaryButton(
                     text: 'Gửi mã xác minh',
                     color: AppColors.primaryColor,
                     onPress: () {
-                      print('Đăng ký');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const VerifyScreen()),
+                        );
                     }),
               ]),
         ),

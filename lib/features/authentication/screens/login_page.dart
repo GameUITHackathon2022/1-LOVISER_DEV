@@ -1,15 +1,10 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uit_hackathon/features/authentication/screens/forgetpass_page.dart';
 import 'package:uit_hackathon/features/authentication/screens/signup_page.dart';
 import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
 import 'package:uit_hackathon/utils/app_assets.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
-import 'package:uit_hackathon/utils/global_variables.dart';
 import 'package:uit_hackathon/widgets/primary_button.dart';
 import 'package:uit_hackathon/widgets/text_field_input.dart';
 
@@ -30,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     void signInUser(){
-      authServices.signInUser(context: context, email: phoneController.text, password: passController.text);
+      authServices.signInUser(context: context, phoneNumber: phoneController.text, password: passController.text);
     }
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -154,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ForgetPassScreen()),
+                            builder: (context) => const ForgetPassScreen()),
                       );
                     },
                     child: const Text(
@@ -175,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text(
-                      'Bạn chưa có tài khoản?',
+                      'Bạn chưa có tài khoản? ',
                       style: TextStyle(
                         fontFamily: 'AvertaStdCY-Semibold',
                         color: Colors.black,
@@ -187,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpScreen()),
+                              builder: (context) => const SignUpScreen()),
                         );
                       },
                       child: const Text(

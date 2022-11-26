@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/utils/app_assets.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
@@ -12,7 +9,7 @@ import '../services/auth_services.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
-  static const String routeName = '/SignUp_screen';
+  static const String routeName = '/signup_screen';
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
@@ -28,9 +25,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    void signUpUser(){
-      authServices.signUpUser(context: context, phoneNumber: phoneController.text, password: passController.text, name: nameController.text);
+    void signUpUser() {
+      authServices.signUpUser(
+          context: context,
+          phoneNumber: phoneController.text,
+          password: passController.text,
+          name: nameController.text);
     }
+
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
@@ -84,109 +86,119 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         color: Color(0xff0D0D26), fontWeight: FontWeight.w400),
                   )),
               SizedBox(height: size.height * 0.03),
-              CustomTextField(
-                controller: nameController,
-                hintText: 'Họ tên',
-              ),
-              CustomTextField(
-                controller: phoneController,
-                hintText: 'Số điện thoại',
-              ),
-              Container(
-                child: TextFormField(
-                    controller: passController,
-                    obscureText: isPasswordVisibleOld,
-                    textInputAction: TextInputAction.done,
-                    decoration: InputDecoration(
-                        enabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2,
-                              color: Color(0xffe8ecf4)), //<-- SEE HERE
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xfff7f8f9),
-                        hintText: 'Mật khẩu',
-                        hintStyle: const TextStyle(
-                          fontFamily: 'AvertaStdCY-Regular',
-                          color: Color(0xff616161),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: isPasswordVisibleOld
-                              ? const Image(
-                                  color: Color(0xFF60778C),
-                                  width: 24,
-                                  height: 24,
-                                  image:
-                                      AssetImage('assets/images/eyeOn.png'))
-                              : const Image(
-                                  color: Color(0xFF60778C),
-                                  width: 24,
-                                  height: 24,
-                                  image: AssetImage(
-                                      'assets/images/eyeOff.png')),
-                          onPressed: () => setState(() =>
-                              isPasswordVisibleOld = !isPasswordVisibleOld),
-                        ),
-                        border: const OutlineInputBorder()),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Điền mật khẩu';
-                      }
-                      return null;
-                    }),
-              ),
-              SizedBox(height: size.height * 0.01),
-              Container(
-                child: TextFormField(
-                    controller: passconfirmController,
-                    obscureText: isPasswordVisibleOld,
-                    textInputAction: TextInputAction.done,
-                    decoration: InputDecoration(
-                        enabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              width: 2,
-                              color: Color(0xffe8ecf4)), //<-- SEE HERE
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xfff7f8f9),
-                        hintText: 'Xác nhận mật khẩu',
-                        hintStyle: const TextStyle(
-                          fontFamily: 'AvertaStdCY-Regular',
-                          color: Color(0xff616161),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: isPasswordVisibleOld
-                              ? const Image(
-                                  color: Color(0xFF60778C),
-                                  width: 24,
-                                  height: 24,
-                                  image:
-                                      AssetImage('assets/images/eyeOn.png'))
-                              : const Image(
-                                  color: Color(0xFF60778C),
-                                  width: 24,
-                                  height: 24,
-                                  image: AssetImage(
-                                      'assets/images/eyeOff.png')),
-                          onPressed: () => setState(() =>
-                              isPasswordVisibleOld = !isPasswordVisibleOld),
-                        ),
-                        border: const OutlineInputBorder()),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Điền mật khẩu';
-                      }
-                      return null;
-                    }),
-              ),
+              Form(
+                  key: _signupformKey,
+                  child: Column(
+                    children: <Widget>[
+                      CustomTextField(
+                        controller: nameController,
+                        hintText: 'Họ và tên',
+                      ),
+                      CustomTextField(
+                        controller: phoneController,
+                        hintText: 'Số điện thoại',
+                      ),
+                      Container(
+                        child: TextFormField(
+                            controller: passController,
+                            obscureText: isPasswordVisibleOld,
+                            textInputAction: TextInputAction.done,
+                            decoration: InputDecoration(
+                                enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      width: 2,
+                                      color: Color(0xffe8ecf4)), //<-- SEE HERE
+                                ),
+                                filled: true,
+                                fillColor: const Color(0xfff7f8f9),
+                                hintText: 'Mật khẩu',
+                                hintStyle: const TextStyle(
+                                  fontFamily: 'AvertaStdCY-Regular',
+                                  color: Color(0xff616161),
+                                ),
+                                suffixIcon: IconButton(
+                                  icon: isPasswordVisibleOld
+                                      ? const Image(
+                                          color: Color(0xFF60778C),
+                                          width: 24,
+                                          height: 24,
+                                          image: AssetImage(
+                                              'assets/images/eyeOn.png'))
+                                      : const Image(
+                                          color: Color(0xFF60778C),
+                                          width: 24,
+                                          height: 24,
+                                          image: AssetImage(
+                                              'assets/images/eyeOff.png')),
+                                  onPressed: () => setState(() =>
+                                      isPasswordVisibleOld =
+                                          !isPasswordVisibleOld),
+                                ),
+                                border: const OutlineInputBorder()),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Nhập mật khẩu';
+                              }
+                              return null;
+                            }),
+                      ),
+                      SizedBox(height: size.height * 0.01),
+                      Container(
+                        child: TextFormField(
+                            controller: passconfirmController,
+                            obscureText: isPasswordVisibleOld,
+                            textInputAction: TextInputAction.done,
+                            decoration: InputDecoration(
+                                enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      width: 2,
+                                      color: Color(0xffe8ecf4)), //<-- SEE HERE
+                                ),
+                                filled: true,
+                                fillColor: const Color(0xfff7f8f9),
+                                hintText: 'Xác nhận mật khẩu',
+                                hintStyle: const TextStyle(
+                                  fontFamily: 'AvertaStdCY-Regular',
+                                  color: Color(0xff616161),
+                                ),
+                                suffixIcon: IconButton(
+                                  icon: isPasswordVisibleOld
+                                      ? const Image(
+                                          color: Color(0xFF60778C),
+                                          width: 24,
+                                          height: 24,
+                                          image: AssetImage(
+                                              'assets/images/eyeOn.png'))
+                                      : const Image(
+                                          color: Color(0xFF60778C),
+                                          width: 24,
+                                          height: 24,
+                                          image: AssetImage(
+                                              'assets/images/eyeOff.png')),
+                                  onPressed: () => setState(() =>
+                                      isPasswordVisibleOld =
+                                          !isPasswordVisibleOld),
+                                ),
+                                border: const OutlineInputBorder()),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Nhập mật khẩu xác nhận';
+                              }
+                              return null;
+                            }),
+                      ),
+                    ],
+                  )),
               SizedBox(height: size.height * 0.03),
               PrimaryButton(
                   text: 'Đăng ký',
                   color: AppColors.primaryColor,
                   onPress: () {
-                    signUpUser();
+                    if (passController.text == passconfirmController.text &&
+                        _signupformKey.currentState!.validate()) {
+                      signUpUser();
+                    }
                   }),
-              
               SizedBox(height: size.height * 0.065),
               SizedBox(
                 height: size.height * 0.1,
@@ -206,7 +218,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => LoginScreen()),
+                              builder: (context) => const LoginScreen()),
                         );
                       },
                       child: const Text(
