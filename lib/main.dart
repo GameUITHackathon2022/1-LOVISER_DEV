@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:uit_hackathon/features/admin/screens/admin_screen.dart';
 import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
 import 'package:uit_hackathon/main_app.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
@@ -55,7 +56,7 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-      home: const MainApp(),
+      home: const AdminScreen(),
     );
   }
 }

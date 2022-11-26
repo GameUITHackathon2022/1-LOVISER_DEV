@@ -8,15 +8,19 @@ class User {
   final String password;
   final String type;
   final String token;
+  final String phone;
   final String address;
+  final String avatar;
 
   User({
     required this.name,
     required this.email,
     required this.id,
     required this.password,
+    required this.phone,
     required this.type,
     required this.token,
+    required this.avatar,
     required this.address,
   });
 
@@ -29,6 +33,8 @@ class User {
       'type': type,
       'token': token,
       'address': address,
+      'phone': phone,
+      'avatar': avatar,
     };
   }
 
@@ -41,6 +47,8 @@ class User {
       type: map['type'] as String,
       token: map['token'] as String,
       address: map['address'] as String,
+      phone: map['phone'] as String,
+      avatar: map['avatar'] as String,
     );
   }
 
@@ -62,6 +70,8 @@ class User {
     String? type,
     String? token,
     String? address,
+    String? avatar,
+    String? phone,
   }) {
     return User(
       name: name ?? this.name,
@@ -70,7 +80,9 @@ class User {
       password: password ?? this.password,
       type: type ?? this.type,
       token: token ?? this.token,
+      avatar: avatar ?? this.avatar,
       address: address ?? this.address,
+      phone: phone ?? this.phone,
     );
   }
 }

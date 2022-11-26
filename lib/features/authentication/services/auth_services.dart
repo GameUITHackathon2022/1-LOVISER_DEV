@@ -26,6 +26,8 @@ class AuthServices {
         type: '',
         token: '',
         address: '',
+        avatar: '',
+        phone: '',
       );
 
       http.Response res = await http.post(
