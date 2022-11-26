@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uit_hackathon/models/garbage.dart';
-import 'package:uit_hackathon/models/user.dart';
 
 class GarbageProvider extends ChangeNotifier {
   bool _isLoading = false;

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:intl/intl.dart';
 import 'package:uit_hackathon/models/challenge.dart';
 import 'package:uit_hackathon/utils/app_styles.dart';
 

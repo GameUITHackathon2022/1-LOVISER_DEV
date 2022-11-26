@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uit_hackathon/features/payment/widget/success_dialog.dart';
 import 'package:uit_hackathon/utils/app_assets.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
 import 'package:uit_hackathon/widgets/primary_button.dart';
@@ -27,7 +28,7 @@ class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final bool timeOption = false;
+    const bool timeOption = false;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -86,8 +87,8 @@ class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
                     padding: const EdgeInsets.all(20),
                     child: Row(
                       children: <Widget>[
-                        Expanded(
-                          child: const Text(
+                        const Expanded(
+                          child: Text(
                             'Đông Hòa, Dĩ An, Bình Dương',
                             style: TextStyle(
                                 color: Colors.black,
@@ -154,9 +155,9 @@ class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: const Text(
+                        const Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text(
                             'Giờ thu gom',
                             style: TextStyle(
                                 color: Colors.black,
@@ -199,7 +200,9 @@ class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
                 PrimaryButton(
                     text: 'Xác nhận',
                     color: AppColors.primaryColor,
-                    onPress: () {})
+                    onPress: () {
+                      const SuccessDialog().showCustomDialog(context);
+                    })
               ]),
         ),
       ),
