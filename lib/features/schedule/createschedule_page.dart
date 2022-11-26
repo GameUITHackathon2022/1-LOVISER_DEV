@@ -3,7 +3,7 @@ import 'package:uit_hackathon/utils/app_assets.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
 import 'package:uit_hackathon/widgets/primary_button.dart';
 
-import '../../home/widgets/item_type.dart';
+import '../home/widgets/item_type.dart';
 
 class CreateScheduleScreen extends StatefulWidget {
   const CreateScheduleScreen({super.key});
@@ -13,12 +13,17 @@ class CreateScheduleScreen extends StatefulWidget {
 }
 
 class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
-  final List<Map<String, dynamic>> types = [
-    {'type': 'Tất cả các ngày'},
-    {'type': 'Thứ 7 - Chủ nhật'},
+  final List<Map<String, dynamic>> days = [
+    {'day': 'Tất cả các ngày'},
+    {'day': 'Thứ 7 - Chủ nhật'},
   ];
-  String type = 'Tất cả';
-  bool dayOption = false;
+  final List<Map<String, dynamic>> times = [
+    {'time': '8h - 17h30'},
+    {'time': '17h30 - 22h'},
+  ];
+  String day = 'Tất cả các ngày';
+  String time = '8h - 17h30';
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -81,12 +86,14 @@ class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
                     padding: const EdgeInsets.all(20),
                     child: Row(
                       children: <Widget>[
-                        const Text(
-                          'Đông Hòa, Dĩ An, Bình Dương',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500),
+                        Expanded(
+                          child: const Text(
+                            'Đông Hòa, Dĩ An, Bình Dương',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
+                          ),
                         ),
                         Image.asset(AppAssets.icPencil),
                         Image.asset(AppAssets.icMap),
@@ -120,27 +127,30 @@ class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        SizedBox(
-                              height: 35,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: types.length,
-                                itemBuilder: (context, index) {
-                                  String name = types[index]['type'];
-                                  return GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        type = name;
-                                      });
-                                    },
-                                    child: ItemType(
-                                      type: name,
-                                      isCheck: type == name ? true : false,
-                                    ),
-                                  );
-                                },
-                              ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: SizedBox(
+                            height: 35,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: days.length,
+                              itemBuilder: (context, index) {
+                                String name = days[index]['day'];
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      day = name;
+                                    });
+                                  },
+                                  child: ItemType(
+                                    type: name,
+                                    isCheck: day == name ? true : false,
+                                  ),
+                                );
+                              },
                             ),
+                          ),
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
@@ -157,50 +167,29 @@ class _CreateScheduleScreenState extends State<CreateScheduleScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            GestureDetector(
-                              onTap: () {},
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                    height: 40,
-                                    width: 150,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(97),
-                                        color: AppColors.primaryColor),
-                                    child: const Padding(
-                                      padding: EdgeInsets.all(10.0),
-                                      child: Center(
-                                          child: Text(
-                                        '8h - 17.30',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
-                                    )),
-                              ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: SizedBox(
+                            height: 35,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: times.length,
+                              itemBuilder: (context, index) {
+                                String name = times[index]['time'];
+                                return GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      time = name;
+                                    });
+                                  },
+                                  child: ItemType(
+                                    type: name,
+                                    isCheck: time == name ? true : false,
+                                  ),
+                                );
+                              },
                             ),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                    height: 40,
-                                    width: 150,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(97),
-                                        color: AppColors.primaryColor),
-                                    child: const Padding(
-                                      padding: EdgeInsets.all(10.0),
-                                      child: Center(
-                                          child: Text(
-                                        '17.30 - 22h',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
-                                    )),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ]),
                 ),
