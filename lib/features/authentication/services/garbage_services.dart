@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:uit_hackathon/main_app.dart';
 import 'package:uit_hackathon/models/garbage.dart';
 import 'package:uit_hackathon/providers/garbage_provider.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';

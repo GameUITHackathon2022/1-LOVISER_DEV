@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:uit_hackathon/features/challenge/widgets/item_add_image.dart';
 import 'package:uit_hackathon/features/home/widgets/item_type.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
