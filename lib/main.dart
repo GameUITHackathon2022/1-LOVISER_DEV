@@ -60,9 +60,7 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-
-      home: const AdminScreen(),
-
+      home: const LoginScreen(),
     );
   }
 }

@@ -32,7 +32,7 @@ class InformationProfile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              user.name,
+              user.username,
               style: AppStyles.medium.copyWith(
                 fontSize: 20,
                 color: Colors.white,
@@ -40,7 +40,7 @@ class InformationProfile extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Text(
-              user.email,
+              'maihung@gmail.com',
               style: AppStyles.regular.copyWith(
                 fontSize: 14,
                 color: Colors.white,

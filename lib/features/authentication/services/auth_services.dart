@@ -12,7 +12,7 @@ import 'package:uit_hackathon/utils/global_variables.dart';
 
 class AuthServices {
   // sign up user
-  void signUpUser({
+  Future<void> signUpUser({
     required BuildContext context,
     required String phoneNumber,
     required String password,
@@ -27,7 +27,6 @@ class AuthServices {
         token: '',
         address: '',
         avatar: '',
-        phone: '',
       );
 
       http.Response res = await http.post(
@@ -51,7 +50,7 @@ class AuthServices {
   }
 
   // sign in user
-  void signInUser({
+  Future<void> signInUser({
     required BuildContext context,
     required String phoneNumber,
     required String password,

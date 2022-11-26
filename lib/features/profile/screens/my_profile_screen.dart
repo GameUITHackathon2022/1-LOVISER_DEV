@@ -63,7 +63,7 @@ class MyProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      user.name,
+                      user.username,
                       style: AppStyles.medium.copyWith(
                         fontSize: 16,
                       ),
@@ -82,7 +82,7 @@ class MyProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              user.email,
+              'maiphamquochung@gmail.com',
               style: AppStyles.medium.copyWith(
                 fontSize: 16,
               ),
@@ -96,7 +96,7 @@ class MyProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              user.phone,
+              user.phoneNumber,
               style: AppStyles.medium.copyWith(
                 fontSize: 16,
               ),

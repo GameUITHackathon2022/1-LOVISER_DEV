@@ -2,24 +2,20 @@
 import 'dart:convert';
 
 class User {
-  final String? username;
+  final String username;
   final String? id;
   final String phoneNumber;
   final String password;
-
   final String type;
   final String token;
-  final String phone;
   final String address;
   final String avatar;
 
-
   User({
-    this.username,
+    required this.username,
     this.id,
     required this.phoneNumber,
     required this.password,
-    required this.phone,
     required this.type,
     required this.token,
     required this.avatar,
@@ -35,21 +31,19 @@ class User {
       'type': type,
       'token': token,
       'address': address,
-      'phone': phone,
       'avatar': avatar,
     };
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      username: map['username'] as String,
+      username: map['name'] as String,
       id: map['_id'] as String,
       phoneNumber: map['phoneNumber'] as String,
       password: map['password'] as String,
       type: map['type'] as String,
       token: map['token'] as String,
       address: map['address'] as String,
-      phone: map['phone'] as String,
       avatar: map['avatar'] as String,
     );
   }
@@ -61,7 +55,7 @@ class User {
 
   @override
   String toString() {
-    return 'User(username: $username, id: $id, phoneNumber: $phoneNumber , password: $password, type: $type, token: $token, address: $address )';
+    return 'User(name: $username, id: $id, phoneNumber: $phoneNumber , password: $password, type: $type, token: $token, address: $address )';
   }
 
   User copyWith({
@@ -84,7 +78,6 @@ class User {
       token: token ?? this.token,
       avatar: avatar ?? this.avatar,
       address: address ?? this.address,
-      phone: phone ?? this.phone,
     );
   }
 }
