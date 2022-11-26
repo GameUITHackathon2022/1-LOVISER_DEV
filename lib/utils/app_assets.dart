@@ -1,5 +1,6 @@
 class AppAssets {
-  static const String imagePath = 'assets/icons';
+
+
   static const String iconPath = 'assets/icons';
 
   static const String icArrowRight = '$iconPath/ic_arrow_right.png';
@@ -14,9 +15,16 @@ class AppAssets {
   static const String icSetting = '$iconPath/ic_setting.png';
   static const String icInviteFriend = '$iconPath/ic_invite_friend.png';
 
-  static const String fill1 = '$imagePath/fill_1.png';
-  static const String fill4 = '$imagePath/fill_4.png';
-  static const String fill7 = '$imagePath/fill_7.png';
-  static const String fill10 = '$imagePath/fill_10.png';
-  static const String bgProfile = '$imagePath/bg_profile.png';
+  static const String fill1 = '$iconPath/fill_1.png';
+  static const String fill4 = '$iconPath/fill_4.png';
+  static const String fill7 = '$iconPath/fill_7.png';
+  static const String fill10 = '$iconPath/fill_10.png';
+  static const String bgProfile = '$iconPath/bg_profile.png';
+
+  static const String imagePath = 'assets/images';
+
+  static const String signup = '$imagePath/signup.png';
+  static const String login = '$imagePath/login.png';
+  static const String forgetpass = '$imagePath/forgetpass.png';
+
 }

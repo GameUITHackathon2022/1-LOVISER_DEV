@@ -13,15 +13,14 @@ class AuthServices {
   // sign up user
   void signUpUser({
     required BuildContext context,
-    required String email,
+    required String phoneNumber,
     required String password,
     required String name,
   }) async {
     try {
       User user = User(
-        name: name,
-        email: email,
-        id: '',
+        username: name,
+        phoneNumber: phoneNumber,
         password: password,
         type: '',
         token: '',
@@ -31,7 +30,7 @@ class AuthServices {
       );
 
       http.Response res = await http.post(
-        Uri.parse('$uri/api/createUser'),
+        Uri.parse('${uri}api/auth/register'),
         body: user.toJson(),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
@@ -60,7 +59,7 @@ class AuthServices {
       print('111');
 
       http.Response res = await http.post(
-        Uri.parse('$uri/api/signIn'),
+        Uri.parse('$uri/api/auth/login'),
         body: jsonEncode({
           'email': email,
           'password': password,

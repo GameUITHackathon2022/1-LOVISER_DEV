@@ -1,7 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
-import 'package:uit_hackathon/utils/app_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;
@@ -15,15 +12,17 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: onPress,
       child: Container(
-          color: AppColors.primaryColor,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
+          height: size.height * 0.06,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5), color: color),
           child: Center(
               child: Text(
             text,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ))),
     );
   }

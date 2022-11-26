@@ -16,6 +16,7 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return TextFormField(
       maxLines: maxLines,
       keyboardType: type,
@@ -25,21 +26,30 @@ class CustomTextField extends StatelessWidget {
         border: const OutlineInputBorder(
           borderSide: BorderSide(
             color: Colors.black38,
-          ),
-        ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.black38,
-          ),
-        ),
-      ),
-      validator: (val) {
-        if (val == null || val.isEmpty) {
-          return 'Enter your $hintText';
-        }
 
-        return null;
-      },
+          ),
+          filled: true,
+          fillColor: const Color(0xfff7f8f9),
+          hintStyle: const TextStyle(
+            fontFamily: 'AvertaStdCY-Regular',
+            color: Color(0xff616161),
+          ),
+          hintText: hintText,
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 3,
+              color: Colors.black38,
+            ),
+          ),
+        ),
+        validator: (val) {
+          if (val == null || val.isEmpty) {
+            return 'Nhập $hintText của bạn';
+          }
+    
+          return null;
+        },
+      ),
     );
   }
 }
