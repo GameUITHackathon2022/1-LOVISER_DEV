@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
+import 'package:uit_hackathon/features/authentication/screens/signup_page.dart';
 import 'package:uit_hackathon/main_app.dart';
 
 final Map<String, WidgetBuilder> routes = {
   MainApp.routeName: (context) => const MainApp(),
   LoginScreen.routeName: (context) => const LoginScreen(),
+  SignUpScreen.routeName:(context) => const SignUpScreen()
 };
 
 MaterialPageRoute<dynamic>? generateRoutes(RouteSettings settings) {

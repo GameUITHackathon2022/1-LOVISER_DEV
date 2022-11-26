@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uit_hackathon/main_app.dart';
 import 'package:uit_hackathon/models/user.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
 import 'package:uit_hackathon/utils/error_handling.dart';
@@ -47,16 +48,16 @@ class AuthServices {
   // sign in user
   void signInUser({
     required BuildContext context,
-    required String email,
+    required String phoneNumber,
     required String password,
   }) async {
     try {
       print('111');
 
       http.Response res = await http.post(
-        Uri.parse('$uri/api/auth/login'),
+        Uri.parse('${uri}api/auth/login'),
         body: jsonEncode({
-          'email': email,
+          'phoneNumber': phoneNumber,
           'password': password,
         }),
         headers: <String, String>{
@@ -74,11 +75,10 @@ class AuthServices {
             'x-auth-token',
             jsonDecode(res.body)['token'],
           );
-          // Navigator.pushNamedAndRemoveUntil(
-          //   context,
-          //   BottomBar.routeName,
-          //   (route) => false,
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const MainApp()),
+          );
         },
       );
     } catch (e) {
