@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
 import 'package:uit_hackathon/main_app.dart';
@@ -31,12 +32,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final AuthServices authService = AuthServices();
+  //final AuthServices authService = AuthServices();
 
   @override
   void initState() {
     super.initState();
-    authService.getUserData(context: context);
+    //authService.getUserData(context: context);
   }
 
   @override
@@ -48,11 +49,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Uit Hackathon',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          elevation: 0,
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-          
+          systemOverlayStyle: SystemUiOverlayStyle.dark, // set dark of light
         ),
         scaffoldBackgroundColor: AppColors.backgroundColor,
       ),

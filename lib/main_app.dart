@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:uit_hackathon/features/home/screens/home_screen.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
 import 'package:uit_hackathon/widgets/tab_widget.dart';
@@ -16,7 +17,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   List screens = [
-    Container(),
+    const HomeScreen(),
     Container(),
     Container(),
     Container(),
@@ -32,7 +33,6 @@ class _MainAppState extends State<MainApp> {
     var provider = Provider.of<BottomNavigationProvider>(context);
     return Scaffold(
       extendBody: true,
-      backgroundColor: Colors.white,
       body: screens[provider.currentIndex],
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
@@ -51,7 +51,7 @@ class _MainAppState extends State<MainApp> {
                     onPressed: () {
                       provider.currentIndex = 0;
                     },
-                    name: 'Diary',
+                    name: 'Home',
                     color: provider.currentIndex == 0
                         ? AppColors.primaryColor
                         : AppColors.textSecondaryColor,
@@ -86,8 +86,8 @@ class _MainAppState extends State<MainApp> {
                     onPressed: () {
                       provider.currentIndex = 3;
                     },
-                    iconData: FontAwesomeIcons.gear,
-                    name: 'Setting',
+                    iconData: FontAwesomeIcons.user,
+                    name: 'Profile',
                     color: provider.currentIndex == 3
                         ? AppColors.primaryColor
                         : AppColors.textSecondaryColor,
@@ -103,9 +103,9 @@ class _MainAppState extends State<MainApp> {
         child: Container(
           width: 60,
           height: 60,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.green,
+            color: AppColors.primaryColor,
           ),
           child: const Icon(
             Icons.add,
