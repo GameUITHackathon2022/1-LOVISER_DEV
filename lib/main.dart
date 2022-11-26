@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
-import 'package:uit_hackathon/main_app.dart';
+import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
 import 'package:uit_hackathon/route.dart';
@@ -42,8 +41,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
-    print(user.name);
+    //final user = Provider.of<UserProvider>(context).user;
+    //print(user.name);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Uit Hackathon',
@@ -55,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-      home: const MainApp(),
+      home: const LoginScreen(),
     );
   }
 }

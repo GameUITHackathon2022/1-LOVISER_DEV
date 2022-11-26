@@ -3,8 +3,8 @@ import 'package:uit_hackathon/models/user.dart';
 
 class UserProvider extends ChangeNotifier {
   User _user = User(
-    name: '',
-    email: '',
+    username: '',
+    phoneNumber: '',
     id: '',
     password: '',
     type: '',

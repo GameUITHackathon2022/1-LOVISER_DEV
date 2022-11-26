@@ -14,29 +14,39 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      maxLines: maxLines,
-      controller: controller,
-      decoration: InputDecoration(
-        hintText: hintText,
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.black38,
+    Size size = MediaQuery.of(context).size;
+    return Padding(
+      padding: EdgeInsets.only(bottom: size.height * 0.01),
+      child: TextFormField(
+        maxLines: maxLines,
+        controller: controller,
+        decoration: InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide:
+                BorderSide(width: 2, color: Color(0xffe8ecf4)), //<-- SEE HERE
+          ),
+          filled: true,
+          fillColor: const Color(0xfff7f8f9),
+          hintStyle: const TextStyle(
+            fontFamily: 'AvertaStdCY-Regular',
+            color: Color(0xff616161),
+          ),
+          hintText: hintText,
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(
+              width: 3,
+              color: Colors.black38,
+            ),
           ),
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.black38,
-          ),
-        ),
+        validator: (val) {
+          if (val == null || val.isEmpty) {
+            return 'Nhập $hintText của bạn';
+          }
+    
+          return null;
+        },
       ),
-      validator: (val) {
-        if (val == null || val.isEmpty) {
-          return 'Enter your $hintText';
-        }
-
-        return null;
-      },
     );
   }
 }
