@@ -43,7 +43,7 @@ class ItemGarbageAdmin extends StatelessWidget {
           Row(
             children: [
               Text(
-                garbage.money.round().toString().toVND(),
+                garbage.price.round().toString().toVND(),
                 style: AppStyles.semibold.copyWith(
                   fontSize: 16,
                 ),

@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/admin/screens/add_garbage_screen.dart';
 import 'package:uit_hackathon/features/admin/screens/garbages_screen.dart';
-import 'package:uit_hackathon/features/home/screens/home_screen.dart';
 import 'package:uit_hackathon/features/profile/screens/profile_screen.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
@@ -28,6 +27,8 @@ class _AdminScreenState extends State<AdminScreen> {
   void initState() {
     super.initState();
   }
+  
+  
 
   @override
   Widget build(BuildContext context) {
