@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/admin/widgets/item_garbage_admin.dart';
 import 'package:uit_hackathon/features/home/widgets/box_challenge.dart';
 import 'package:uit_hackathon/features/home/widgets/item_type.dart';
 import 'package:uit_hackathon/models/garbage.dart';
+import 'package:uit_hackathon/providers/garbage_provider.dart';
 import 'package:uit_hackathon/utils/app_styles.dart';
 
 class GarbagesScreen extends StatefulWidget {
@@ -20,51 +22,10 @@ class _GarbagesScreenState extends State<GarbagesScreen> {
     {'type': "Đồ dùng cũ"},
   ];
   String type = 'Tất cả';
-
-  final List<Garbage> garbages = [
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-  ];
+    
   @override
   Widget build(BuildContext context) {
+    final garbageProvider = context.watch<GarbageProvider>();
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -123,11 +84,11 @@ class _GarbagesScreenState extends State<GarbagesScreen> {
                 crossAxisCount: 2,
                 mainAxisSpacing: 14,
                 crossAxisSpacing: 10,
-                childAspectRatio: size.width / (size.height * 0.61 / 1.0),
+                childAspectRatio: size.width / (size.height * 0.7 / 1.0),
               ),
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
-                  Garbage garbage = garbages[index];
+                  Garbage garbage = garbageProvider.garbages[index];
                   return GestureDetector(
                     onTap: () {},
                     child: ItemGarbageAdmin(
@@ -135,7 +96,7 @@ class _GarbagesScreenState extends State<GarbagesScreen> {
                     ),
                   );
                 },
-                childCount: garbages.length,
+                childCount: garbageProvider.garbages.length,
               ),
             ),
           )

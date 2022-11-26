@@ -4,10 +4,9 @@ class Garbage {
   final String? id;
   final String name;
   final double price;
-  // final String type;
   final String type;
   final String description;
-  // final String? imgUrl;
+  final String url;
 
   Garbage({
     this.id,
@@ -15,16 +14,17 @@ class Garbage {
     required this.price,
     required this.type,
     required this.description,
-    // this.imgUrl,
-    // required this.imgUrl,
+    required this.url,
   });
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
       'price': price,
       'type': type,
       'description': description,
-      // 'imgUrl': imgUrl,
+      'id':id,
+      'url':url
     };
   }
 
@@ -35,7 +35,7 @@ class Garbage {
       price: double.parse(map['price'].toString()),
       type: map['type'],
       description: map['description'],
-      // imgUrl: map['imgUrl'],
+      url: map['url'],
     );
   }
 
@@ -43,4 +43,23 @@ class Garbage {
 
   factory Garbage.fromJson(String source) =>
       Garbage.fromMap(json.decode(source) as Map<String, dynamic>);
+
+      Garbage copyWith({
+       String? id,
+   String? name,
+   double ?price,
+   String? type,
+   String? description,
+   String? url,
+  }) {
+    return Garbage(
+      name: name ?? this.name,
+      id: id ?? this.id,
+      price: price ?? this.price,
+      type: type??this.type,
+      description: description??this.description,
+      url: url??this.url,
+      //avatar: avatar ?? this.avatar,
+    );
+  }
 }

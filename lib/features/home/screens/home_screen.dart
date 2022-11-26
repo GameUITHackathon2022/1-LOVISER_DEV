@@ -22,48 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   String type = 'Tất cả';
 
-  final List<Garbage> garbages = [
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-    Garbage(
-      name: 'Túi nilon',
-      price: 1000,
-      description: 'Nhãn chai, túi ni long các loại',
-      type: 'Khó phân huỷ',
-    ),
-    // imgUrl:
-    //     'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60'),
-  ];
+  
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -157,15 +116,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
-                  Garbage garbage = garbages[index];
-                  return GestureDetector(
-                    onTap: () {},
-                    child: ItemGarbage(
-                      garbage: garbage,
-                    ),
-                  );
+                  //Garbage garbage = garbages[index];
+                  // return GestureDetector(
+                  //   onTap: () {},
+                  //   child: ItemGarbage(
+                  //     garbage: garbage,
+                  //   ),
+                  // );
+                  return Container();
                 },
-                childCount: garbages.length,
+                childCount: 1,
               ),
             ),
           )

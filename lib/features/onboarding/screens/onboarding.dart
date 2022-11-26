@@ -1,7 +1,7 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+// import 'package:lottie/lottie.dart';
 import '../../onboarding/widgets/animated_indicator.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
@@ -36,8 +36,8 @@ class _OnboardingState extends State<Onboarding> {
                   title: "Bạn có rác muốn bán",
                   subtitle: "Chúng tôi sẽ đến tận nhà bạn để thu mua",
                   progress: Image.asset('assets/images/Indexing.png'),
-                  background:
-                      LottieBuilder.asset('assets/images/background.json'),
+                  // background:
+                  //     LottieBuilder.asset('assets/images/background.json'),
                   onNext: nextPage),
               Slide(
                   hero: Image.asset('assets/images/welcome2.gif'),
@@ -45,8 +45,8 @@ class _OnboardingState extends State<Onboarding> {
                   subtitle:
                       "Bạn có thể tạo ra các challenge để kêu gọi mọi người cùng chung tay dọn sạch môi trường",
                   progress: Image.asset('assets/images/Indexing_2.png'),
-                  background:
-                      LottieBuilder.asset('assets/images/background.json'),
+                  // background:
+                  //     LottieBuilder.asset('assets/images/background.json'),
                   onNext: nextPage),
               Slide(
                   hero: Image.asset("assets/images/welcome3.gif"),
@@ -54,8 +54,8 @@ class _OnboardingState extends State<Onboarding> {
                   subtitle:
                       "Chúng tôi sẽ trich nguồn thu từ ENVISER để mua và trồng cây xây",
                   progress: Image.asset('assets/images/Indexing_3.png'),
-                  background:
-                      LottieBuilder.asset('assets/images/background.json'),
+                  // background:
+                  //     LottieBuilder.asset('assets/images/background.json'),
                   onNext: nextPage),
               Slide(
                 hero: Image.asset('assets/images/welcome4.gif'),
@@ -63,8 +63,8 @@ class _OnboardingState extends State<Onboarding> {
                     "Hãy cùng với ENVISER chung tay bảo vệ môi trường bạn nhé",
                 subtitle: "",
                 progress: Image.asset('assets/images/Indexing_4.png'),
-                background:
-                    LottieBuilder.asset('assets/images/background.json'),
+                // background:
+                //     LottieBuilder.asset('assets/images/background.json'),
                 onNext: () {
                   Navigator.push(
                     context,
