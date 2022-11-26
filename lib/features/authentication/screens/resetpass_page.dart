@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:uit_hackathon/features/authentication/screens/confirmpass_page.dart';
 import 'package:uit_hackathon/utils/app_assets.dart';
 
 import '../../../utils/app_colors.dart';
 import '../../../widgets/primary_button.dart';
-import '../../../widgets/text_field_input.dart';
 
 class ResetpassScreen extends StatefulWidget {
   const ResetpassScreen({super.key});
