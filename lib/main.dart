@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:uit_hackathon/features/admin/screens/admin_screen.dart';
+import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
-import 'package:uit_hackathon/features/payment/screen/paysuccess.dart';
-import 'package:uit_hackathon/main_app.dart';
-
-
-
-
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/providers/garbage_provider.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
 import 'package:uit_hackathon/route.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
+
+import 'main_app.dart';
 
 void main() {
   runApp(
@@ -66,7 +64,7 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: generateRoutes,
       home: Provider.of<UserProvider>(context).user.id.isNotEmpty
           ? const MainApp()
-          : const PaySuccess(),
+          : const LoginScreen(),
     );
   }
 }
