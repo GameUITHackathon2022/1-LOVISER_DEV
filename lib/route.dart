@@ -16,4 +16,5 @@ MaterialPageRoute<dynamic>? generateRoutes(RouteSettings settings) {
     //     ),
     //   );
   }
+  return null;
 }
