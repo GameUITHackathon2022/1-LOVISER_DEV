@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:uit_hackathon/features/authentication/services/garbage_services.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
 import 'package:uit_hackathon/utils/app_styles.dart';
 import 'package:uit_hackathon/widgets/text_field_input.dart';
@@ -18,12 +19,29 @@ class _AddGarbageScreenState extends State<AddGarbageScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController moneyController = TextEditingController();
+  final GarbageServices garbageServices = GarbageServices();
 
+  bool isLoading = false;
   List<String> types = [
     'Khó phân huỷ',
     'Tái chế',
     "Đồ dùng cũ",
   ];
+  void addGarbage() async {
+    setState(() {
+      isLoading = true;
+    });
+    await garbageServices.addGarbage(
+        context: context,
+        name: nameController.text,
+        price: double.parse(moneyController.text),
+        description: descriptionController.text,
+        type: type);
+    setState(() {
+      isLoading = false;
+    });
+    print("done");
+  }
 
   String type = '';
 
@@ -66,7 +84,7 @@ class _AddGarbageScreenState extends State<AddGarbageScreen> {
             children: [
               CustomTextField(
                 controller: nameController,
-                hintText: 'Nhập loại cần thu mua',
+                hintText: 'Nhập tên loại rác cần thu mua',
               ),
               const SizedBox(height: 10),
               CustomTextField(
@@ -113,7 +131,7 @@ class _AddGarbageScreenState extends State<AddGarbageScreen> {
               ),
               const SizedBox(height: 10),
               GestureDetector(
-                onTap: () {},
+                onTap: addGarbage,
                 child: Text('Add'),
               )
             ],
