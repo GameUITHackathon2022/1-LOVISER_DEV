@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
-import 'package:uit_hackathon/main_app.dart';
+import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
 import 'package:uit_hackathon/route.dart';
@@ -31,18 +30,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final AuthServices authService = AuthServices();
+  //final AuthServices authService = AuthServices();
 
   @override
   void initState() {
     super.initState();
-    authService.getUserData(context: context);
+    //authService.getUserData(context: context);
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
-    print(user.name);
+    //final user = Provider.of<UserProvider>(context).user;
+    //print(user.name);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Uit Hackathon',
@@ -52,13 +51,12 @@ class _MyAppState extends State<MyApp> {
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
-          
         ),
         scaffoldBackgroundColor: AppColors.backgroundColor,
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-      home: const MainApp(),
+      home: const LoginScreen(),
     );
   }
 }

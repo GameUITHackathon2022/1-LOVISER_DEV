@@ -1,1 +1,1 @@
-String uri = 'http://10.0.1.12:3000';
+String uri = 'https://loviserhackathon.herokuapp.com/';

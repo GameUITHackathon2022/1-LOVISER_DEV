@@ -2,29 +2,29 @@
 import 'dart:convert';
 
 class User {
-  final String name;
-  final String email;
-  final String id;
+  final String username;
+  final String? id;
+  final String phoneNumber;
   final String password;
-  final String type;
-  final String token;
-  final String address;
+  final String? type;
+  final String? token;
+  final String? address;
 
   User({
-    required this.name,
-    required this.email,
-    required this.id,
+    required this.username,
+    this.id,
+    required this.phoneNumber,
     required this.password,
-    required this.type,
-    required this.token,
-    required this.address,
+    this.type,
+    this.token,
+    this.address,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'name': name,
-      'email': email,
+      'username': username,
       'id': id,
+      'phoneNumber': phoneNumber,
       'password': password,
       'type': type,
       'token': token,
@@ -34,9 +34,9 @@ class User {
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      name: map['name'] as String,
-      email: map['email'] as String,
+      username: map['name'] as String,
       id: map['_id'] as String,
+      phoneNumber: map['phoneNumber'] as String,
       password: map['password'] as String,
       type: map['type'] as String,
       token: map['token'] as String,
@@ -51,22 +51,22 @@ class User {
 
   @override
   String toString() {
-    return 'User(name: $name, email: $email, id: $id, password: $password, type: $type, token: $token, address: $address )';
+    return 'User(name: $username, id: $id, phoneNumber: $phoneNumber , password: $password, type: $type, token: $token, address: $address )';
   }
 
   User copyWith({
     String? name,
-    String? email,
     String? id,
+    String? phoneNumber,
     String? password,
     String? type,
     String? token,
     String? address,
   }) {
     return User(
-      name: name ?? this.name,
-      email: email ?? this.email,
+      username: name ?? this.username,
       id: id ?? this.id,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
       password: password ?? this.password,
       type: type ?? this.type,
       token: token ?? this.token,
