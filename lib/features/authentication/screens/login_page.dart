@@ -22,7 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passController = TextEditingController();
   bool isLoading = false;
-
   void signInUser() async {
     setState(() {
       isLoading = true;

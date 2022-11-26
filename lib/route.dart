@@ -6,16 +6,19 @@ import 'package:uit_hackathon/features/profile/screens/edit_profile_screen.dart'
 import 'package:uit_hackathon/features/profile/screens/my_profile_screen.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/features/authentication/screens/signup_page.dart';
+import 'package:uit_hackathon/features/schedule/createschedule_page.dart';
+import 'package:uit_hackathon/features/schedule/current_location_screen.dart';
 import 'package:uit_hackathon/main_app.dart';
 import 'package:uit_hackathon/models/user.dart';
 
 final Map<String, WidgetBuilder> routes = {
   MainApp.routeName: (context) => const MainApp(),
-  AddGarbageScreen.routeName: (context) => const AddGarbageScreen(),
   LoginScreen.routeName: (context) => const LoginScreen(),
   SignUpScreen.routeName: (context) => const SignUpScreen(),
   CreateChallengeScreen.routeName: (context) => const CreateChallengeScreen(),
-  SelectDateScreen.routeName: (context) => SelectDateScreen()
+  SelectDateScreen.routeName: (context) => SelectDateScreen(),
+  CreateScheduleScreen.routeName: (context) => const CreateScheduleScreen(),
+  CurrentLocationScreen.routeName: (context) => const CurrentLocationScreen(),
 };
 
 MaterialPageRoute<dynamic>? generateRoutes(RouteSettings settings) {

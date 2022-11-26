@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uit_hackathon/models/garbage.dart';
-import 'package:uit_hackathon/models/user.dart';
 
 class GarbageProvider extends ChangeNotifier {
   bool _isLoading = false;
@@ -16,7 +15,7 @@ class GarbageProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  final List<Garbage> _garbages = [];
+  List<Garbage> _garbages = [];
   List<Garbage> get garbages => _garbages;
   void setGarbage(List<Garbage> garbages) {
     _garbages.clear();

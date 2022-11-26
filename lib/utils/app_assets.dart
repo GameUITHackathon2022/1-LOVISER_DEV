@@ -34,9 +34,9 @@ class AppAssets {
   static const String forgetpass = '$imagePath/forgetpass.png';
   static const String verify = '$imagePath/verify.png';
   static const String reset = '$imagePath/reset.png';
-
+  static const String orderSucess = '$imagePath/ordersuccess.png';
   static const String challenge = '$imagePath/challenge.png';
-
+  static const String circle = '$imagePath/circle.png';
   static const String schedule = '$imagePath/schedule.png';
-
+  static const String momo = '$imagePath/momo.png';
 }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uit_hackathon/features/authentication/services/garbage_services.dart';
 import 'package:uit_hackathon/main_app.dart';
 import 'package:uit_hackathon/models/user.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
@@ -71,10 +72,12 @@ class AuthServices {
           print(res.headers);
           final preps = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
-          await preps.setString(
-            'x-auth-token',
-            res.headers['access-token']!,
-          );
+          // get all garbage
+          // await preps.setString(
+          //   'x-auth-token',
+          //   res.headers['access-token']!,
+          // );
+          print(jsonDecode(res.body)['id']);
           await preps.setString(
             'id',
             jsonDecode(res.body)['id'],
@@ -96,6 +99,7 @@ class AuthServices {
       SharedPreferences pref = await SharedPreferences.getInstance();
 
       String? token = pref.getString('id');
+      print(token);
       if (token == '') {
         pref.setString('id', '');
       } else {
@@ -106,6 +110,7 @@ class AuthServices {
             'Content-Type': 'application/json; charset=UTF-8',
           },
         );
+
         Provider.of<UserProvider>(context, listen: false).setUser(userRes.body);
       }
     } catch (e) {
