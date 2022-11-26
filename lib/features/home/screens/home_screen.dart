@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:uit_hackathon/features/authentication/services/garbage_services.dart';
 import 'package:uit_hackathon/features/home/widgets/box_challenge.dart';
 import 'package:uit_hackathon/features/home/widgets/item_garbage.dart';
 import 'package:uit_hackathon/features/home/widgets/item_type.dart';
 import 'package:uit_hackathon/models/garbage.dart';
+import 'package:uit_hackathon/providers/garbage_provider.dart';
 import 'package:uit_hackathon/utils/app_styles.dart';
+import 'package:uit_hackathon/widgets/loader.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,9 +26,27 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   String type = 'Tất cả';
 
-  
+  bool isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getGarbages();
+  }
+
+  void getGarbages() async {
+    setState(() {
+      isLoading = true;
+    });
+    await GarbageServices().getAllGarbage(context: context);
+    setState(() {
+      isLoading = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final garbageProvider = context.watch<GarbageProvider>();
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -107,27 +129,30 @@ class _HomeScreenState extends State<HomeScreen> {
               right: 20,
               top: 15,
             ),
-            sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 14,
-                crossAxisSpacing: 10,
-                childAspectRatio: size.width / (size.height * 0.61 / 1.0),
-              ),
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  //Garbage garbage = garbages[index];
-                  // return GestureDetector(
-                  //   onTap: () {},
-                  //   child: ItemGarbage(
-                  //     garbage: garbage,
-                  //   ),
-                  // );
-                  return Container();
-                },
-                childCount: 1,
-              ),
-            ),
+            sliver: isLoading
+                ? const SliverToBoxAdapter(
+                    child: Loader(),
+                  )
+                : SliverGrid(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 14,
+                      crossAxisSpacing: 10,
+                      childAspectRatio: size.width / (size.height * 0.61 / 1.0),
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        Garbage garbage = garbageProvider.garbages[index];
+                        return GestureDetector(
+                          onTap: () {},
+                          child: ItemGarbage(
+                            garbage: garbage,
+                          ),
+                        );
+                      },
+                      childCount: garbageProvider.garbages.length + 1,
+                    ),
+                  ),
           )
         ],
       ),

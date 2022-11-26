@@ -15,14 +15,11 @@ class GarbageProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  final List<Garbage> _garbages = [];
+  List<Garbage> _garbages = [];
   List<Garbage> get garbages => _garbages;
   void setGarbage(List<Garbage> garbages) {
     _garbages.clear();
     _garbages.addAll(garbages);
-    _garbages.forEach((element) {
-      print(element.name);
-    });
     // _garbages.sort((a, b) => b.time.compareTo(a.time));
     notifyListeners();
   }

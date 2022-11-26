@@ -14,6 +14,7 @@ class ItemGarbage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(garbage.url);
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -26,9 +27,16 @@ class ItemGarbage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(
-            'https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FyYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-            fit: BoxFit.cover,
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.network(
+                garbage.url,
+                height: 100,
+                width: 100,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           const SizedBox(height: 5),
           Text(

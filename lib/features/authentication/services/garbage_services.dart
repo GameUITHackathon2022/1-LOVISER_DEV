@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 import 'package:uit_hackathon/utils/global_variables.dart';
 
 class GarbageServices {
-  Future<void> getAllGarbage({   
+  Future<void> getAllGarbage({
     required BuildContext context,
   }) async {
     try {
@@ -28,13 +28,20 @@ class GarbageServices {
         response: res,
         context: context,
         onSuccess: () {
-          print("Thanh cong roi haha");
           List<Garbage> garbages = [];
-          List<dynamic> data = jsonDecode(res.body);
-          print("data: $data");
-          data.forEach((element) {
-            garbages.add(Garbage.fromJson(element));
-          });
+          var result = jsonDecode(res.body);
+          print(result);
+
+          for (int i = 0; i < result.length; i++) {
+            Garbage garbage = Garbage.fromJson(
+              jsonEncode(
+                result[i],
+              ),
+            );
+            print(garbage.url);
+            garbages.add(garbage);
+          }
+
           Provider.of<GarbageProvider>(context, listen: false)
               .setGarbage(garbages);
           print("ok roi haha");
@@ -53,14 +60,14 @@ class GarbageServices {
     try {
       final cloudinary = CloudinaryPublic('dpx4x5tfh', 'm1gthj2u');
 
-        CloudinaryResponse response = await cloudinary.uploadFile(
-          CloudinaryFile.fromFile(
-            file.path,
-            folder: 'challenges',
-          ),
-        );
-        garbage = garbage.copyWith(url: response.secureUrl);
-      
+      CloudinaryResponse response = await cloudinary.uploadFile(
+        CloudinaryFile.fromFile(
+          file.path,
+          folder: 'challenges',
+        ),
+      );
+      garbage = garbage.copyWith(url: response.secureUrl);
+
       http.Response res = await http.post(
         Uri.parse('${uri}api/garbage/createGarbage'),
         body: garbage.toJson(),

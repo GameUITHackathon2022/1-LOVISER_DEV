@@ -73,16 +73,15 @@ class AuthServices {
           final preps = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           // get all garbage
-          //await GarbageServices().getAllGarbage(context: context);
-          print("zo xong roi nha");
           // await preps.setString(
           //   'x-auth-token',
           //   res.headers['access-token']!,
           // );
-          // await preps.setString(
-          //   'id',
-          //   jsonDecode(res.body)['id'],
-          // );
+          print(jsonDecode(res.body)['id']);
+          await preps.setString(
+            'id',
+            jsonDecode(res.body)['id'],
+          );
           Navigator.pushNamed(context, MainApp.routeName);
         },
       );
@@ -100,6 +99,7 @@ class AuthServices {
       SharedPreferences pref = await SharedPreferences.getInstance();
 
       String? token = pref.getString('id');
+      print(token);
       if (token == '') {
         pref.setString('id', '');
       } else {
@@ -110,6 +110,7 @@ class AuthServices {
             'Content-Type': 'application/json; charset=UTF-8',
           },
         );
+
         Provider.of<UserProvider>(context, listen: false).setUser(userRes.body);
       }
     } catch (e) {

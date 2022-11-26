@@ -23,8 +23,8 @@ class Garbage {
       'price': price,
       'type': type,
       'description': description,
-      'id':id,
-      'url':url
+      'id': id,
+      'url': url
     };
   }
 
@@ -42,23 +42,23 @@ class Garbage {
   String toJson() => json.encode(toMap());
 
   factory Garbage.fromJson(String source) =>
-      Garbage.fromMap(json.decode(source) as Map<String, dynamic>);
+      Garbage.fromMap(json.decode(source));
 
-      Garbage copyWith({
-       String? id,
-   String? name,
-   double ?price,
-   String? type,
-   String? description,
-   String? url,
+  Garbage copyWith({
+    String? id,
+    String? name,
+    double? price,
+    String? type,
+    String? description,
+    String? url,
   }) {
     return Garbage(
       name: name ?? this.name,
       id: id ?? this.id,
       price: price ?? this.price,
-      type: type??this.type,
-      description: description??this.description,
-      url: url??this.url,
+      type: type ?? this.type,
+      description: description ?? this.description,
+      url: url ?? this.url,
       //avatar: avatar ?? this.avatar,
     );
   }
