@@ -23,6 +23,11 @@ class AuthServices {
         username: name,
         phoneNumber: phoneNumber,
         password: password,
+        type: '',
+        token: '',
+        address: '',
+        avatar: '',
+        phone: '',
       );
 
       http.Response res = await http.post(

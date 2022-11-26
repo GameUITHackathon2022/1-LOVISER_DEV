@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:uit_hackathon/features/admin/screens/add_garbage_screen.dart';
+import 'package:uit_hackathon/features/admin/screens/garbages_screen.dart';
 import 'package:uit_hackathon/features/home/screens/home_screen.dart';
 import 'package:uit_hackathon/features/profile/screens/profile_screen.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
 import 'package:uit_hackathon/widgets/tab_widget.dart';
 
-class MainApp extends StatefulWidget {
-  const MainApp({super.key});
-
-  static const String routeName = '/main_app';
+class AdminScreen extends StatefulWidget {
+  const AdminScreen({super.key});
 
   @override
-  State<MainApp> createState() => _MainAppState();
+  State<AdminScreen> createState() => _AdminScreenState();
 }
 
-class _MainAppState extends State<MainApp> {
+class _AdminScreenState extends State<AdminScreen> {
   List screens = [
-    const HomeScreen(),
+    const GarbagesScreen(),
     Container(),
     Container(),
     const ProfileScreen(),
@@ -100,7 +100,10 @@ class _MainAppState extends State<MainApp> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Navigator.pushNamed(
+          context,
+          AddGarbageScreen.routeName,
+        ),
         child: Container(
           width: 60,
           height: 60,
