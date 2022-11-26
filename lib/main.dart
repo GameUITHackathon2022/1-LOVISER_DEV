@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
 import 'package:uit_hackathon/route.dart';
+import 'package:uit_hackathon/utils/app_colors.dart';
 
 void main() {
   runApp(
@@ -46,11 +47,13 @@ class _MyAppState extends State<MyApp> {
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
+          
         ),
+        scaffoldBackgroundColor: AppColors.backgroundColor,
       ),
       routes: routes,
       onGenerateRoute: generateRoutes,
-      home: Scaffold(),
+      home: const Scaffold(),
     );
   }
 }
