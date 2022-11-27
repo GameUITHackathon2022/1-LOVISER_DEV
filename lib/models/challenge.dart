@@ -11,6 +11,7 @@ class Challenge {
   // final int currentPaticipants;
   final String? id;
   final String address;
+  final String userId;
 
   Challenge({
     required this.title,
@@ -22,6 +23,7 @@ class Challenge {
     // required this.currentPaticipants,
     this.id,
     required this.address,
+    required this.userId,
   });
 
   Map<String, dynamic> toMap() {
@@ -34,6 +36,7 @@ class Challenge {
       'maximumParticipants': maximumParticipants,
       '_id': id,
       'address': address,
+      'user_id': userId,
     };
   }
 
@@ -47,13 +50,14 @@ class Challenge {
       maximumParticipants: map['maximumParticipants'] as int,
       images: List<String>.from(map['images']),
       address: map['address'] as String,
+      userId: map['user_id'] as String,
     );
   }
 
   String toJson() => json.encode(toMap());
 
   factory Challenge.fromJson(String source) =>
-      Challenge.fromMap(json.decode(source) as Map<String, dynamic>);
+      Challenge.fromMap(json.decode(source));
 
   Challenge copyWith({
     String? title,
@@ -62,6 +66,7 @@ class Challenge {
     int? endTime,
     List<String>? images,
     int? maximumParticipants,
+    String? userId,
     String? address,
   }) {
     return Challenge(
@@ -72,6 +77,7 @@ class Challenge {
       images: images ?? this.images,
       maximumParticipants: maximumParticipants ?? this.maximumParticipants,
       address: address ?? this.address,
+      userId: userId ?? this.userId,
     );
   }
 }

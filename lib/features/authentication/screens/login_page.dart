@@ -61,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: const <Widget>[
                             Text(
                               'ENVISER',
+
                               style: TextStyle(
                                   color: Color(0xff356899),
                                   fontWeight: FontWeight.w600,

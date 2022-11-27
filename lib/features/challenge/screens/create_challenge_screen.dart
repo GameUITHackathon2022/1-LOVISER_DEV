@@ -1,11 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/challenge/screens/select_date_screen.dart';
 import 'package:uit_hackathon/features/challenge/services/challenge_services.dart';
 import 'package:uit_hackathon/features/challenge/widgets/box.dart';
 import 'package:uit_hackathon/features/challenge/widgets/item_upload_group.dart';
 import 'package:uit_hackathon/models/challenge.dart';
+import 'package:uit_hackathon/providers/user_provider.dart';
 import 'package:uit_hackathon/utils/date_ext.dart';
 import 'package:uit_hackathon/utils/app_colors.dart';
 import 'package:uit_hackathon/utils/app_styles.dart';
@@ -58,6 +60,8 @@ class _CreateChallengeScreenState extends State<CreateChallengeScreen> {
   }
 
   void createChallenge(BuildContext context) async {
+    final userProvider = context.read<UserProvider>();
+
     setState(() {
       isLoading = true;
     });
@@ -76,12 +80,14 @@ class _CreateChallengeScreenState extends State<CreateChallengeScreen> {
       endTime: endDate.millisecondsSinceEpoch,
       maximumParticipants: int.parse(numberController.text),
       address: 'Bình Dương',
+      userId: userProvider.user.id,
     );
     await challengeServices.createChallenge(
       context: context,
       challenge: challenge,
       images: images,
     );
+    Navigator.of(context).pop();
     setState(() {
       isLoading = false;
     });

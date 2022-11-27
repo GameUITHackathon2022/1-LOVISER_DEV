@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:uit_hackathon/models/challenge.dart';
 import 'package:uit_hackathon/utils/app_styles.dart';
 
@@ -56,7 +57,11 @@ class ItemChallenge extends StatelessWidget {
               ),
               children: <TextSpan>[
                 TextSpan(
-                  text: '',
+                  text: '${DateFormat('dd/MM/yyyy').format(
+                    DateTime.fromMillisecondsSinceEpoch(challenge.startTime),
+                  )} - ${DateFormat('dd/MM/yyyy').format(
+                    DateTime.fromMillisecondsSinceEpoch(challenge.endTime),
+                  )}',
                   style: AppStyles.regular.copyWith(
                     fontSize: 14,
                   ),
@@ -72,7 +77,7 @@ class ItemChallenge extends StatelessWidget {
               ),
               children: <TextSpan>[
                 TextSpan(
-                  text: '10',
+                  text: challenge.maximumParticipants.toString(),
                   style: AppStyles.regular.copyWith(
                     fontSize: 14,
                   ),
