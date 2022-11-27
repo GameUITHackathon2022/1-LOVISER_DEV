@@ -19,7 +19,7 @@ class _AdminChallengeScreenState extends State<AdminChallengeScreen> {
       endTime: 1669499049803,
       maximumParticipants: 15,
       address: "Khu phố 6, P. Linh Trung, Thủ đức",
-      images: [],
+      images: [], userId: '',
       // image: "assets/images/challenge1.png",
     ),
     Challenge(
@@ -30,7 +30,7 @@ class _AdminChallengeScreenState extends State<AdminChallengeScreen> {
       endTime: 1669499049803,
       maximumParticipants: 15,
       address: "Khu phố 6, P. Linh Trung, Thủ đức",
-      images: [],
+      images: [], userId: '',
       // image: "assets/images/challenge1.png",
     ),
   ];
