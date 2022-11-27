@@ -6,6 +6,7 @@ import 'package:uit_hackathon/features/admin/screens/garbage_list_screen.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
+import 'package:uit_hackathon/providers/challenge_provider.dart';
 import 'package:uit_hackathon/providers/garbage_provider.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
 import 'package:uit_hackathon/route.dart';
@@ -25,6 +26,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (context) => GarbageProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ChallengeProvider(),
         ),
       ],
       child: const MyApp(),

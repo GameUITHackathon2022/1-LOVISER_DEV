@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: const <Widget>[
                             Text(
-                              'MyApp',
+                              'Enviser',
                               style: TextStyle(
                                   color: Color(0xff356899),
                                   fontWeight: FontWeight.w600,
