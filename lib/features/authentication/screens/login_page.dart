@@ -60,7 +60,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: const <Widget>[
                             Text(
-                              'Enviser',
+                              'ENVISER',
+
                               style: TextStyle(
                                   color: Color(0xff356899),
                                   fontWeight: FontWeight.w600,
@@ -75,7 +76,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Image.asset(AppAssets.login),
+                          Container(
+                              height: 140,
+                              width: 140,
+                              child: Image.asset(
+                                AppAssets.login,
+                              )),
                         ],
                       ),
                     ],
@@ -89,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                     width: size.width * 0.8,
                     child: const Text(
-                      'Loviser nền tảng việc làm tự do về tình cảm đầu tiên tại Việt Nam',
+                      'ENVISER nền tảng thu mua rác thải và kết nối Challenge làm sạch môi trường đầu tiên tại Việt Nam',
                       style: TextStyle(
                           color: Color(0xff0D0D26),
                           fontWeight: FontWeight.w400),

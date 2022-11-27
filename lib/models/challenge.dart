@@ -8,6 +8,7 @@ class Challenge {
   final int endTime;
   final List<String> images;
   final int maximumParticipants;
+  // final int currentPaticipants;
   final String? id;
   final String address;
   final String userId;
@@ -19,6 +20,7 @@ class Challenge {
     required this.images,
     required this.endTime,
     required this.maximumParticipants,
+    // required this.currentPaticipants,
     this.id,
     required this.address,
     required this.userId,
