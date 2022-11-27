@@ -5,6 +5,7 @@ import 'package:uit_hackathon/features/admin/screens/admin_screen.dart';
 import 'package:uit_hackathon/features/admin/screens/garbage_list_screen.dart';
 import 'package:uit_hackathon/features/authentication/screens/login_page.dart';
 import 'package:uit_hackathon/features/authentication/services/auth_services.dart';
+import 'package:uit_hackathon/features/onboarding/screens/onboarding.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
 import 'package:uit_hackathon/providers/garbage_provider.dart';
 import 'package:uit_hackathon/providers/user_provider.dart';
@@ -45,11 +46,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    getData();
-  }
-
-  getData() async {
-    await authService.getUserData(context: context);
+    authService.getUserData(context: context);
   }
 
   @override
@@ -69,7 +66,7 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: generateRoutes,
       home: Provider.of<UserProvider>(context).user.id.isNotEmpty
           ? const MainApp()
-          : const LoginScreen(),
+          : const Onboarding(),
       //home: AdminScreen(),
     );
   }
