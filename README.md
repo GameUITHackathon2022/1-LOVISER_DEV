@@ -1,16 +1,7 @@
 # uit_hackathon
 
-A new Flutter project.
+Enviser project. Application about protecting environment
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+“Enviser” là ứng dụng giúp người dùng tối đa hóa các lợi ích trong việc giữ sạch đẹp không gian của mình thông qua hoạt động trao đổi các loại rác và các loại vật dụng không cần thiết trong gia đình để nhận lại một khoản tiền tương ứng, một phần trong đó sẽ được trích để gây quỹ trồng cây xanh. Tất cả được thực hiện đơn giản chỉ bằng việc “Chạm” trên chiếc điện thoại thông minh của bạn. “Enviser” hoàn toàn có thể trở thành một tiện ích không thể thiếu với người dân Việt Nam, giúp bảo vệ môi trường một cách nhanh chóng, khoa học và bền vững.
