@@ -34,7 +34,7 @@ class ItemGarbage extends StatelessWidget {
                 garbage.url,
                 height: 100,
                 width: 100,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
           ),
