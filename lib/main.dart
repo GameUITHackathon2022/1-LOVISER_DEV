@@ -45,7 +45,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    authService.getUserData(context: context);
+    getData();
+  }
+
+  getData() async {
+    await authService.getUserData(context: context);
   }
 
   @override
