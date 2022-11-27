@@ -20,7 +20,6 @@ class AppAssets {
   static const String icAddress = '$iconPath/address.png';
   static const String icClock = '$iconPath/clock.png';
 
-
   static const String fill1 = '$iconPath/fill_1.png';
   static const String fill4 = '$iconPath/fill_4.png';
   static const String fill7 = '$iconPath/fill_7.png';
@@ -30,7 +29,7 @@ class AppAssets {
   static const String imagePath = 'assets/images';
 
   static const String signup = '$imagePath/signup.png';
-  static const String login = '$imagePath/login.png';
+  static const String login = '$imagePath/login.gif';
   static const String forgetpass = '$imagePath/forgetpass.png';
   static const String verify = '$imagePath/verify.png';
   static const String reset = '$imagePath/reset.png';
