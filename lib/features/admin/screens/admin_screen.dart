@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:uit_hackathon/features/admin/screens/add_garbage_screen.dart';
 import 'package:uit_hackathon/features/admin/screens/admin_challenge_screen.dart';
+import 'package:uit_hackathon/features/admin/screens/garbage_list_screen.dart';
 import 'package:uit_hackathon/features/admin/screens/garbages_screen.dart';
 import 'package:uit_hackathon/features/profile/screens/profile_screen.dart';
 import 'package:uit_hackathon/providers/bottom_navigaton_provider.dart';
@@ -21,7 +22,7 @@ class _AdminScreenState extends State<AdminScreen> {
   List screens = [
     const GarbagesScreen(),
     AdminChallengeScreen(),
-    Container(),
+    GarbageList(),
     const ProfileScreen(),
   ];
 
