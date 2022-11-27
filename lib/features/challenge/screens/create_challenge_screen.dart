@@ -54,12 +54,6 @@ class _CreateChallengeScreenState extends State<CreateChallengeScreen> {
       setState(() {
         timeStart = value;
       });
-      // Setting setting = settingProvider.setting;
-      // setting = setting.copyWith(
-      //   reminderHour: value.hour,
-      //   reminderMinute: value.minute,
-      // );
-      // settingProvider.setSetting(setting);
     }
   }
 

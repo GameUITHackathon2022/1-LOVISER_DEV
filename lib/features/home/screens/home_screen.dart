@@ -5,6 +5,7 @@ import 'package:uit_hackathon/features/authentication/services/garbage_services.
 import 'package:uit_hackathon/features/home/widgets/box_challenge.dart';
 import 'package:uit_hackathon/features/home/widgets/item_garbage.dart';
 import 'package:uit_hackathon/features/home/widgets/item_type.dart';
+import 'package:uit_hackathon/features/schedule/createschedule_page.dart';
 import 'package:uit_hackathon/models/garbage.dart';
 import 'package:uit_hackathon/providers/garbage_provider.dart';
 import 'package:uit_hackathon/utils/app_styles.dart';
@@ -35,18 +36,23 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void getGarbages() async {
-    setState(() {
-      isLoading = true;
-    });
-    await GarbageServices().getAllGarbage(context: context);
-    setState(() {
-      isLoading = false;
-    });
+    final garbageProvider = context.read<GarbageProvider>();
+    if (garbageProvider.garbages.isEmpty) {
+      setState(() {
+        isLoading = true;
+      });
+      await GarbageServices().getAllGarbage(context: context);
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final garbageProvider = context.watch<GarbageProvider>();
+    List<Garbage> garbages = garbageProvider.garbages;
+
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -142,15 +148,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
-                        Garbage garbage = garbageProvider.garbages[index];
+                        Garbage garbage = garbages[index];
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              CreateScheduleScreen.routeName,
+                            );
+                          },
                           child: ItemGarbage(
                             garbage: garbage,
                           ),
                         );
                       },
-                      childCount: garbageProvider.garbages.length + 1,
+                      childCount: garbages.length,
                     ),
                   ),
           )
